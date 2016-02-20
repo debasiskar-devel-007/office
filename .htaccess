@@ -1,0 +1,14 @@
+#Header set Access-Control-Allow-Origin "*"
+RewriteEngine on
+
+# Don't rewrite files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule (.*) http://www.documenttrunk.com/index.html [R=301,L]
+
+# Rewrite everything else to index.html to allow html5 state links
+RewriteRule ^ index.html [L]

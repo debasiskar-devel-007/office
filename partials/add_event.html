@@ -1,0 +1,204 @@
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Event Manager
+
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Forms</a></li>
+            <li class="active">General Elements</li>
+          </ol>
+        </section>
+
+
+
+    
+        <section class="content">
+          <div class="row">
+           
+        
+            <!-- left column -->
+            <div class="col-md-12">
+            
+              <!-- general form elements -->
+              <div class="box box-primary" style="overflow:hidden; padding-bottom:40px;">
+            
+                <div class="box-header with-border">
+                  <h3 class="box-title"></h3>
+                  <h3 class="box-title">Add Event</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                
+                  <div class="formsection">
+                <form angular-validator-submit="addeventsForm()" id="add_event" name="add_event" role="form" novalidate angular-validator>
+                  <div class="box-body">
+
+                    <div class="form-group">
+                      <label >Event Name* :</label>
+                      <input type="text" class="form-control" placeholder="Event Name " name="event_name"
+
+                             ng-model="form.event_name"
+                             required-message="'Event name can not be blank.'"
+                             required>
+
+                      <!-- <span class="errormsg">erroe msg</span>-->
+                    </div>
+                    <div class="form-group">
+                    <label >Event Description* :</label>
+                     <textarea rows="3" class="form-control" placeholder="Event Description" name="event_description"
+
+                               ng-model="form.event_description"
+                               requirde-message="'event description can not be blank.'"
+                               required
+                             ></textarea>
+
+                    <!-- <span class="errormsg">erroe msg</span>-->
+                  </div>
+                    <div class="form-group">
+                      <label >Event Image* :</label>
+                      <input type="text" class="form-control" placeholder="Event Image" name="event_image"
+
+                             ng-model="form.event_image"
+                             required-message="'Please upload event image.'"
+                             required>
+
+                      <!-- <span class="errormsg">erroe msg</span>-->
+                    </div>
+
+                     <div class="form-group">
+                      <label >Event Date Range* :</label>
+                         <div class="input-group">
+                             <div class="input-group-addon">
+                                 <i class="fa fa-calendar"></i>
+                             </div>
+
+
+
+
+                         <input type="text" class="form-control pull-right" id="reservation" value="02/11/2016 - 03/25/2016" placeholder="Event Date Range" name="event_daterange"
+
+                             ng-model="form.event_daterange"
+                             required-message="'Please select event date range.'"
+                             required
+                               ></div>
+
+                      <!-- <span class="errormsg">erroe msg</span>-->
+                    </div>
+                      <div class="form-group">
+                          <label >Event Time Range* :</label>
+
+                          <div class="input-group">
+                              <!--<div class="input-group-addon">
+                                  <i class="fa fa-clock-o"></i>
+                              </div>-->
+
+                              <!--<input type="text" class="form-control pull-right" placeholder="Event Time Range" name="event_timerange" id="reservationtime"
+
+                                     ng-model="form.event_timerange"
+                                     required-message="'Please select event time range.'"
+                                     required
+                                      >-->
+
+                              <div> <input type="checkbox" value="1" ng-model="allday"  > All Day </div>
+
+                              <div ng-controller="admin_header" ng-show="allday">
+
+
+                                  <uib-timepicker ng-model="starttime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+
+                                  <pre class="alert alert-info">Time is: {{starttime | date:'shortTime' }}</pre>
+
+
+                                  <uib-timepicker ng-model="endtime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+
+                                  <pre class="alert alert-info">Time is: {{endtime | date:'shortTime' }}</pre>
+                              </div>
+
+                          </div>
+
+
+
+
+
+                          <!-- <span class="errormsg">erroe msg</span>-->
+                      </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"
+                                   ng-model="form.event_status"
+                                    >
+                            <span style="font-size:13px;">Event status</span>
+                        </label>
+
+
+
+                     <!-- <span class="errormsg">erroe msg</span>-->
+                    </div>
+
+                   <!-- <div class="form-group">
+                    
+                      
+                       <label>Text Disabled</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+
+                    </div>
+                    
+                    
+                    
+                       <div class="form-group">
+                    
+                    <label>Textarea Disabled</label>
+                      <textarea class="form-control" rows="3" placeholder="Enter ..."  style="resize:none;"></textarea>
+
+                      
+                      </div>
+                      
+                      <div class="form-group">
+                      <label>Select</label>
+                      <select class="form-control">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="exampleInputFile" style="font-size:13px;">File input</label>
+                      <input type="file" id="exampleInputFile" style="font-size:13px;">
+
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> <span style="font-size:13px;">Check me out</span>
+                      </label>
+                      
+                      <label>
+                        <input type="radio"> <span style="font-size:13px;">Check me out</span>
+                      </label>
+                      
+                    </div>
+                  -->
+                  </div><!-- /.box-body -->
+
+                  <div class="box-footer" style="background:none; height:auto; padding-bottom:0px; padding-top:0px;">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
+              </div><!-- /.box -->
+
+
+ <div style="clear:both;"></div>
+            </div>
+           
+          </div>   <!-- /.row -->
+            </div>
+        </section>
+        
+      
+      </div>
